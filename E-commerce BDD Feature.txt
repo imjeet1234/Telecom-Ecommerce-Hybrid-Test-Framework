@@ -1,0 +1,7 @@
+Feature: E-commerce Checkout Process
+  Scenario: Validate payment processing
+    Given User adds product "iPhone 15" to cart
+    When User selects "Credit Card" payment
+    And User enters card details "4111111111111111"
+    Then Order status should be "CONFIRMED"
+    And Inventory should decrease by 1

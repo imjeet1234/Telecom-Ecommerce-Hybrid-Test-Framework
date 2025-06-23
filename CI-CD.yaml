@@ -1,0 +1,12 @@
+name: CI/CD Pipeline
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run API Tests
+        run: mvn test -Dsuite=api_tests
+      - name: Generate Allure Report
+        run: allure serve allure-results
